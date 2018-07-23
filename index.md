@@ -1,15 +1,9 @@
 Jee Seok Yoon
 
-Undergraduate Student,
-Department of Computer Science and Engineering,
-Korea University, Seoul, South Korea
-
-Undergraduate Intern,
+Graduate Student (Integrated Master and Ph.D. program)
 Machine Intelligence Laboratory,
 Department of Brain and Cognitive Engineering,
 Korea University, Seoul, South Korea
 [@ku-milab](https://github.com/ku-milab)
 
-
-Email: wltjr1007@korea.ac.kr, admin@jsyoon.kr (personal)
-
+Email: (Work) wltjr1007@korea.ac.kr, (Personal) admin@jsyoon.kr
