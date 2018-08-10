@@ -1,0 +1,4 @@
+embeddings {
+  tensor_name: "z:0"
+  metadata_path: "/data1/project/Ali-GAN/log/cifar10/0810_182052/metadata.tsv"
+}
