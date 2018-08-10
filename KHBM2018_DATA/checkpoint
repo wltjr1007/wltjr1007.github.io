@@ -1,2 +1,2 @@
-model_checkpoint_path: "/data1/project/Ali-GAN/log/cifar10/0810_182052/z.ckpt"
-all_model_checkpoint_paths: "/data1/project/Ali-GAN/log/cifar10/0810_182052/z.ckpt"
+model_checkpoint_path: "./z.ckpt"
+all_model_checkpoint_paths: "./z.ckpt"
