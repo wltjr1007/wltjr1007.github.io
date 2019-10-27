@@ -1,6 +1,6 @@
 Jee Seok Yoon
 
-Graduate Student (Integrated Master and Ph.D. program)    
+Graduate Student (Integrated Master and Ph.D. program),    
 Machine Intelligence Laboratory,    
 Department of Brain and Cognitive Engineering,    
 Korea University, Seoul, South Korea    
