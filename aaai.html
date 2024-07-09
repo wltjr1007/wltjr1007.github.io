@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #countdown {
+            font-size: 2em;
+            text-align: center;
+        }
+        .time-unit {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .time-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">
+        AAAI
+        <br>
+        <div class="time-unit">
+            <span id="days" class="time-value">00</span>
+            <span>D</span>
+        </div>
+        <div class="time-unit">
+            <span id="hours" class="time-value">00</span>
+            <span>H</span>
+        </div>
+        <div class="time-unit">
+            <span id="minutes" class="time-value">00</span>
+            <span>M</span>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to (1 year from now)
+        const countDownDate = new Date("Aug 16, 2024 20:59:59").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        // Update the countdown every second
+        const countdownTimer = setInterval(updateCountdown, 1000);
+
+        // Initial call to display the countdown immediately
+        updateCountdown();
+    </script>
+</body>
+</html>
