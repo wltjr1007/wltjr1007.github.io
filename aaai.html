@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>AAAI 2025 Deadline Countdown</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,65 +14,56 @@
             margin: 0;
             background-color: #f0f0f0;
         }
-        #countdown {
-            font-size: 2em;
+        #container {
             text-align: center;
         }
-        .time-unit {
-            display: inline-block;
-            margin: 0 10px;
-        }
-        .time-value {
-            font-size: 1.5em;
+        #title {
+            font-size: 12px;
             font-weight: bold;
+            margin-bottom: 2px;
+        }
+        #countdown {
+            font-size: 10px;
+        }
+        #total-days {
+            font-size: 8px;
+            vertical-align: sub;
         }
     </style>
 </head>
 <body>
-    <div id="countdown">
-        AAAI
-        <br>
-        <div class="time-unit">
-            <span id="days" class="time-value">00</span>
-            <span>D</span>
-        </div>
-        <div class="time-unit">
-            <span id="hours" class="time-value">00</span>
-            <span>H</span>
-        </div>
-        <div class="time-unit">
-            <span id="minutes" class="time-value">00</span>
-            <span>M</span>
+    <div id="container">
+        <div id="title">AAAI25</div>
+        <div id="countdown">
+            <span id="weeks"></span>w 
+            <span id="days"></span>d 
+            <span id="hours"></span>h 
+            <span id="minutes"></span>m
+            <br>
+            <span id="total-days"></span>
         </div>
     </div>
 
     <script>
-        // Set the date we're counting down to (1 year from now)
-        const countDownDate = new Date("Aug 16, 2024 20:59:59").getTime();
-
         function updateCountdown() {
+            const deadline = new Date("2024-08-16T21:00:00").getTime();
             const now = new Date().getTime();
-            const distance = countDownDate - now;
+            const timeLeft = deadline - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const weeks = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor((timeLeft % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const totalDays = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-            }
+            document.getElementById("weeks").textContent = weeks;
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("total-days").textContent = `(${totalDays-1} days total)`;
         }
 
-        // Update the countdown every second
-        const countdownTimer = setInterval(updateCountdown, 1000);
-
-        // Initial call to display the countdown immediately
+        setInterval(updateCountdown, 60000);
         updateCountdown();
     </script>
 </body>
